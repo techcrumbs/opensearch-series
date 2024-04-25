@@ -7,6 +7,10 @@ ext {
     javaMainClass = "org.techcrumbs.Main"
 }
 
+application {
+    mainClassName = javaMainClass
+}
+
 group = 'org.techcrumbs'
 version = '1.0-SNAPSHOT'
 
