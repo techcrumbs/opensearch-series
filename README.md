@@ -10,9 +10,11 @@
 
 ## Run opensearch
 
-`docker pull opensearchproject/opensearch:2`
 
 ```
+
+# pull opensearch image
+docker pull opensearchproject/opensearch:2
  
  # For OpenSearch 2.12 or greater, set a new custom admin password before installation using the following command:
  docker run -d -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" -e "OPENSEARCH_INITIAL_ADMIN_PASSWORD=$OPENSEARCH_ADMIN_PASSWORD" opensearchproject/opensearch:latest
