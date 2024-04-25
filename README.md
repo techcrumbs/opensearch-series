@@ -21,6 +21,9 @@
  # check opensearch is running
  curl -ku $OPENSEARCH_ADMIN_USER:$OPENSEARCH_ADMIN_PASSWORD https://localhost:9200
  
+ # more details on the -k options is cURL https://curl.se/docs/manpage.html#-k
+ # It is basically an insecure connection, no certificate validation is done
+  
  # check container id
  docker container ls | grep opensearch
  
