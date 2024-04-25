@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+apply plugin : "java"
+ext {
+    javaMainClass = "org.techcrumbs.Main"
+}
+
+group = 'org.techcrumbs'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.opensearch.client:opensearch-rest-high-level-client:2.13.0'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
