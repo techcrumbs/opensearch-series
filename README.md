@@ -1,3 +1,6 @@
+[Opensearch Series - Episode 1] https://youtu.be/SH370SNoVVk
+
+
 # Connecting to OpenSearch over HTTPS using the Java High-Level REST Client
 
 
