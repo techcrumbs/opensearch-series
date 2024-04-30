@@ -1,7 +1,7 @@
 package org.techcrumbs.search.management;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.opensearch.OpenSearchStatusException;
 import org.opensearch.action.admin.indices.alias.Alias;
 import org.opensearch.client.RequestOptions;
@@ -39,7 +39,7 @@ public class IndexManager {
         Map<String, Object> mappings;
         try (InputStream is = IndexManager.class.getResourceAsStream(index.mappingFile())) {
             mappings = gson.fromJson(new InputStreamReader(is),
-                    new TypeReference<Map<String, Object>>() {}.getType());
+                    new TypeToken<Map<String, Object>>() {}.getType());
         }
 
         Map<String, Object> settings = new HashMap<>();

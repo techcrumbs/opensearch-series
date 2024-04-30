@@ -1,8 +1,8 @@
 package org.techcrumbs.data.movies.parser;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -159,7 +159,7 @@ public class MoviesDataParser {
     private Movie.MovieCollection parseMovieCollection(String value) {
         if (Helper.isEmptyString(value.strip())) return null;
         String jsonString = value.replaceAll("'", "\"");
-        Map<String, String> map = PRETTY_PRINTER_GSON.fromJson(jsonString, new TypeReference<Map<String, String>>() {}.getType());
+        Map<String, String> map = PRETTY_PRINTER_GSON.fromJson(jsonString, new TypeToken<Map<String, String>>() {}.getType());
         return new Movie.MovieCollection(
                 map.get("id"),
                 map.get("name"),
@@ -175,7 +175,7 @@ public class MoviesDataParser {
 
     private static List<Map<String, Object>> toListOfMaps(String value) {
         String jsonString = value.replaceAll("'", "\"");
-        return PRETTY_PRINTER_GSON.fromJson(jsonString, new TypeReference<List<Map<String, Object>>>() {}.getType());
+        return PRETTY_PRINTER_GSON.fromJson(jsonString, new TypeToken<List<Map<String, Object>>>() {}.getType());
     }
 
     public static void parseAndIndexMovies(RestHighLevelClient highLevelClient) throws Exception {
