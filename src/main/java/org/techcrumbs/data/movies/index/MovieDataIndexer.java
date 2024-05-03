@@ -18,7 +18,6 @@ public class MovieDataIndexer {
     }
 
     public void indexMovies(List<Movie> movies) {
-
         Gson gson = new Gson();
         Map<String, String> docs = movies.stream().collect(Collectors.toMap(Movie::getId, gson::toJson));
         try {
@@ -26,5 +25,20 @@ public class MovieDataIndexer {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void indexMoviesDryRun(List<Movie> movies) {
+        Gson gson = new Gson();
+        var sb = new StringBuilder();
+        String line1Format = """
+                {"index": {"_index": "%s", "_id": %s}}
+                """;
+        for (Movie movie : movies) {
+            sb.append(String.format(line1Format, Indices.MOVIES_METADATA_INDEX.referenceName(), movie.getId()))
+                    .append(gson.toJson(movie))
+                    .append("\n");
+        }
+
+        System.out.println(sb);
     }
 }

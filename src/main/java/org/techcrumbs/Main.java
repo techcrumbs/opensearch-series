@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello World");
         try (RestHighLevelClient highLevelClient = ClientProvider.newHighLevelRestClient()) {
-            MoviesDataParser.parseAndIndexMovies(highLevelClient);
+            MoviesDataParser.parseAndIndexMovies(highLevelClient, false);
         }
     }
 }

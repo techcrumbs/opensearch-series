@@ -1,0 +1,4 @@
+curl -ku "$OPENSEARCH_ADMIN_USER:$OPENSEARCH_ADMIN_PASSWORD" -i -X PUT -H "Content-Type: application/json" https://localhost:9200/tc_v1_movies_metadata --data-binary "@create_index_request.json"
+
+curl -ku "$OPENSEARCH_ADMIN_USER:$OPENSEARCH_ADMIN_PASSWORD" -i -X POST -H "Content-Type: application/json" https://localhost:9200/_bulk --data-binary "@bulk_index_data.txt"
+

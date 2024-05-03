@@ -1,7 +1,6 @@
 package org.techcrumbs.data.movies.index;
 
 import org.opensearch.client.RestHighLevelClient;
-import org.techcrumbs.search.ClientProvider;
 import org.techcrumbs.search.management.IndexManager;
 import org.techcrumbs.search.model.Index;
 
@@ -13,8 +12,9 @@ public class Indices {
     private static final String MOVIES_METADATA_INDEX_SCHEMA = "/search/schema/movies_metadata_schema.json";
 
     public static final Index MOVIES_METADATA_INDEX = new Index(
-            "tc_v1_movies_metadata",
-            List.of("movies_metadata"),
+            "tc_v1_movies_metadata-00001",
+            // List.of("movies_metadata"),
+            List.of(),
             3,
             1,
             MOVIES_METADATA_INDEX_SCHEMA,

@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class IndexManager {
 
-    private RestHighLevelClient highLevelClient;
+    private final RestHighLevelClient highLevelClient;
 
     public IndexManager(RestHighLevelClient highLevelClient) {
         this.highLevelClient = highLevelClient;
