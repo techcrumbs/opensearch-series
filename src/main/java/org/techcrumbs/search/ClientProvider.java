@@ -1,4 +1,4 @@
-package org.techcrumbs;
+package org.techcrumbs.search;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
