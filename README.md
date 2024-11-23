@@ -78,12 +78,15 @@ While running the setup I encounter the following issues:
 1. opensearch-nodes exited with error `[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`
 2. opensearch-nodes exited with OOM
 
+#### Solutions if you are running a [Colima](https://github.com/abiosoft/colima) container runtime
+
 Solve 1.
 ```
 $ colima ssh
 $ sudo sysctl -w vm.max_map_count=262144
 $ exit
 ```
+Stackoverflow solution [link](https://stackoverflow.com/questions/41192680/update-max-map-count-for-elasticsearch-docker-container-mac-host/41251595#41251595)
 
 <br>
 
